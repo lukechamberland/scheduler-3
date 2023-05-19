@@ -2,6 +2,16 @@ import React from "react";
 import classnames from "classnames";
 import "components/DayListItem.scss";
 
+function formatSpots(numOfSpots) {
+  if (numOfSpots === 1) {
+    return "1 spot remaining";
+  } else if (numOfSpots === 0) {
+    return "no spots remaining";
+  } else {
+    return `${numOfSpots} spots remaining`;
+  }
+}
+
 export default function DayListItem(props) {
   const { name, spots, selected, setDay } = props;
 
@@ -9,11 +19,11 @@ export default function DayListItem(props) {
     "day-list__item--selected": selected,
     "day-list__item--full": !spots
   });
-  
+
   return (
     <li className={dayClass} onClick={() => props.setDay(props.name)}>
       <h2 className="text--regular">{props.name}</h2>
-      <h3 className="text--light">{props.spots} spots remaining</h3>
+      <h3 className="text--light">{formatSpots(spots)}</h3>
     </li>
   );
 }
