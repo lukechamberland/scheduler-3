@@ -1,28 +1,41 @@
+import React, { useState, useEffect } from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
-import React, { useState } from "react";
-
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+import Appointment from "components/Appointment";
+import axios from 'axios';
+import { getAppointmentsForDay } from "helpers/selectors";
 
 export default function Application(props) {
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {},
+    interviewers: {}
+  });
 
-  const [day, setDay] = useState("Monday");
+  const dailyAppointments = getAppointmentsForDay(state.days, state.day, state.appointments);
+  
+  useEffect(() => {
+    Promise.all([axios.get('/api/days'), axios.get('/api/appointments', axios.get('/api/interviewers'))])
+      .then(([daysResponse, appointmentsResponse, interviewerResponse]) => {
+        setState(prevState => ({
+          ...prevState,
+          days: daysResponse.data,
+          appointments: appointmentsResponse.data,
+          interviewers: interviewerResponse
+        }));
+      })
+      .catch(error => {
+        // Handle errors
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  const appointmentLists = dailyAppointments.map((appt) => {
+    return <Appointment key={appt.id} {...appt} />
+  });
+
+  const setDay = day => setState({ ...state, day });
 
   return (
     <main className="layout">
@@ -35,9 +48,9 @@ export default function Application(props) {
       <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
         <DayList
-          days={days}
-          value={day}
-          onchange={setDay}
+          days={state.days}
+          day={state.day}
+          setDay={setDay}
         />
         </nav>
          <img
@@ -47,7 +60,7 @@ export default function Application(props) {
        />
       </section>
       <section className="schedule">
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+        {appointmentLists}
       </section>
     </main>
   );
