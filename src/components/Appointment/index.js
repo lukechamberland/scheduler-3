@@ -4,7 +4,7 @@ import Header from './Header';
 import Show from './Show';
 import Empty from './Empty';
 import Form from './Form';
-import  useVisualMode  from '../../hooks/useVisualMode'
+import  useVisualMode  from '../../hooks/useVisualMode';
 import { getInterviewersForDay } from '../../helpers/selectors';
 
 export default function Appointment(props) { 
