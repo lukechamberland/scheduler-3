@@ -87,3 +87,15 @@ test("getInterview returns null if no interview is booked", () => {
   const result = getInterview(state, state.appointments["2"].interview);
   expect(result).toBeNull();
 });
+
+describe('getInterviewersForDay', () => {
+  it('should return an empty array when the interviewers array is empty for the given day', () => {
+    const interviewers = getInterviewersForDay(state, 'Wednesday');
+    expect(interviewers).toEqual([]);
+  });
+
+  it('should return an empty array when the day does not exist in the state', () => {
+    const interviewers = getInterviewersForDay(state, 'Friday');
+    expect(interviewers).toEqual([]);
+  });
+})
