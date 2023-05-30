@@ -39,9 +39,9 @@ export default function Form(props) {
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
       <Button confirm onSubmit={event => event.preventDefault()} onClick={() => {
-    const data = [student, interviewer];
-    props.onSave(student, interviewer);
-  }}>Save</Button>
+        const data = [student, interviewer];
+        props.onSave(student, interviewer);
+      }}>Save</Button>
     </section>
   </section>
 </main>
