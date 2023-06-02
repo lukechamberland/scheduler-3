@@ -1,12 +1,10 @@
 import React from "react";
 import './InterviewerList.scss';
-import { action } from '@storybook/addon-actions';
 import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
 
   const handleInterviewerSelection = (interviewerId) => {
-    action(`Selected interviewer: ${interviewerId}`)();
     props.onChange(interviewerId);
   };
 
@@ -17,7 +15,7 @@ export default function InterviewerList(props) {
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.value}
-        setInterviewer={() => handleInterviewerSelection(interviewer.id)}    
+        setInterviewer={() => props.setInterviewer(interviewer.id)}    
       />
     );
   });
