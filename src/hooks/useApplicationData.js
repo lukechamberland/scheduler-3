@@ -21,7 +21,7 @@ export default function useApplicationData() {
     return weekdays[day];
   }
 
-  function UpdateSpots(state, id) {
+  function updateSpots(state, id) {
     const singleDay = getDay(state.day);
     const appointment = state.appointments[id];
     const isSpotReserved = appointment.interview;
@@ -63,7 +63,7 @@ export default function useApplicationData() {
         ...prev,
         appointments
       };
-      return UpdateSpots(updatedState, id);
+      return updateSpots(updatedState, id);
     });
 
     return axios
@@ -96,7 +96,7 @@ export default function useApplicationData() {
         ...prev,
         appointments
       };
-      return UpdateSpots(updatedState, id);
+      return updateSpots(updatedState, id);
     });
 
     return axios.delete(`/api/appointments/${id}`).then((response) => {
