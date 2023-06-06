@@ -8,7 +8,6 @@ export default function useApplicationData() {
     appointments: {},
     interviewers: {}
   });
-  console.log(state.days);
 
   function getDay(day) {
     const weekdays = {
