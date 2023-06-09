@@ -44,6 +44,8 @@ export default function useApplicationData() {
     };
   }
 
+  console.log(state)
+
   function bookInterview(id, interview) {
     console.log(id, interview);
 
