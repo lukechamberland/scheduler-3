@@ -30,6 +30,7 @@ export default function Form(props) {
       return;
     }
   
+    setError("");
     props.onSave(student, interviewer);
   }
   
@@ -57,10 +58,7 @@ export default function Form(props) {
   <section className="appointment__card-right">
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
-      <Button confirm onSubmit={event => event.preventDefault()} onClick={() => {
-        const data = [student, interviewer];
-        props.onSave(student, interviewer);
-      }}>Save</Button>
+      <Button confirm onSubmit={event => event.preventDefault()} onClick={validate}>Save</Button>
     </section>
   </section>
 </main>

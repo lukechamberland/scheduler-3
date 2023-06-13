@@ -78,5 +78,19 @@ export default {
         data: fixtures.interviewers
       });
     }
-  })
+  }),
+
+  put: jest.fn(url => {
+      return Promise.resolve({
+        status: 204,
+        statusText: "no content"
+      })
+    }),
+
+    delete: jest.fn(url => {
+      return Promise.resolve({
+        status: 204,
+        statusText: "no content"
+      });
+    })
 }
