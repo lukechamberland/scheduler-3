@@ -5,6 +5,7 @@ import Show from './Show';
 import Empty from './Empty';
 import Form from './Form';
 import Status from './Status';
+import Error from './Error';
 import  useVisualMode  from '../../hooks/useVisualMode';
 import { getInterviewersForDay } from '../../helpers/selectors';
 import Confirm from './Confirm';
@@ -100,6 +101,21 @@ export default function Appointment(props) {
       onCancel={back}
       />
       }
+
+      {mode === ERROR_SAVE &&
+      <Error 
+      message="Error: Unable to save"
+      onClose={back}
+      />
+      }
+
+      {mode === ERROR_DELETE &&
+      <Error 
+      message="Error: Unable to delete"
+      onClose={back}
+      />
+      }
+
     </article>
   );
 }
