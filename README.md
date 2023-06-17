@@ -63,7 +63,7 @@ npm run storybook
 6. Navigate to this directory in you terminal
 7. Run "npm start"
 
-## The App Itself
+## Screenshots
 
 ![Screenshot](https://github.com/lukechamberland/scheduler-3/blob/master/ScreenShots/Screenshot%202023-06-17%20at%203.24.52%20PM.png?raw=true)
 
