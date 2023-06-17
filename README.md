@@ -71,6 +71,6 @@ npm run storybook
 
 ![Screenshot](https://github.com/lukechamberland/scheduler-3/blob/master/ScreenShots/Screenshot%202023-06-17%20at%203.25.17%20PM.png?raw=true)
 
-![Screenshot](https://github.com/lukechamberland/scheduler-3/blob/master/ScreenShots/Screenshot%202023-06-17%20at%203.25.22%20PM.png?raw=true)
+![Screenshot](https://github.com/lukechamberland/scheduler-3/blob/master/ScreenShots/Screenshot%202023-06-17%20at%203.34.19%20PM.png?raw=true)
 
-![Screenshot]()
+![Screenshot](https://github.com/lukechamberland/scheduler-3/blob/master/ScreenShots/Screenshot%202023-06-17%20at%203.25.50%20PM.png?raw=true)
