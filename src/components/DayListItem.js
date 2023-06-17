@@ -3,6 +3,9 @@ import classnames from "classnames";
 import "components/DayListItem.scss";
 
 function formatSpots(numOfSpots) {
+  
+  // Displaying correct number of spots
+  
   if (numOfSpots === 1) {
     return "1 spot remaining";
   } else if (numOfSpots === 0) {
@@ -13,7 +16,7 @@ function formatSpots(numOfSpots) {
 }
 
 export default function DayListItem(props) {
-  const { name, spots, selected, setDay } = props;
+  const { spots, selected } = props;
 
   const dayClass = classnames("day-list__item", {
     "day-list__item--selected": selected,

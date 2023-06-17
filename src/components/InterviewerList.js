@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 
 export default function InterviewerList(props) {
 
-  const handleInterviewerSelection = (interviewerId) => {
-    props.onChange(interviewerId);
-  };
+  // Displaying the interviewers
 
   const interviewers = props.interviewers.map((interviewer) => {
     return (

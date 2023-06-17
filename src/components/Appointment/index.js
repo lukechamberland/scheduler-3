@@ -7,10 +7,12 @@ import Form from './Form';
 import Status from './Status';
 import Error from './Error';
 import  useVisualMode  from '../../hooks/useVisualMode';
-import { getInterviewersForDay } from '../../helpers/selectors';
 import Confirm from './Confirm';
 
 export default function Appointment(props) { 
+
+  // Setting the mode
+
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -26,6 +28,9 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
+
+  // save the interview
+
     const interview = {
       student: name,
       interviewer
@@ -41,6 +46,9 @@ export default function Appointment(props) {
   }
 
   function deleteInterview() {
+
+  // delete the interview
+
     transition(DELETING);
     props.cancelInterview(props.id)
     .then(() => {

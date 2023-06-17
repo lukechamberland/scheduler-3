@@ -1,4 +1,7 @@
 export function getAppointmentsForDay(state, name) {
+  
+  // Find correct appointments for given day
+
   const filteredDay = state.days.find(day => day.name === name);
   
   if (!filteredDay) {
@@ -10,6 +13,9 @@ export function getAppointmentsForDay(state, name) {
 }
 
 export function getInterview(state, interview) {
+  
+  // Find correct interview
+  
   if(!interview) return null;
   const newInterview = {};
   newInterview.student = interview.student;
@@ -18,6 +24,9 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
+
+  // Find correct interviewers for given day
+
   const selectedDay = state?.days.find((d) => d.name === day);
   if (!selectedDay) {
     return [];
