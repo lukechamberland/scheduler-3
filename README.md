@@ -51,12 +51,6 @@ npm test
 npm run storybook
 ```
 
-## Running Jest
-
-```sh
-npm test
-```
-
 ## Getting started
 
 [GitHub Repository](https://github.com/lighthouse-labs/scheduler-api)
