@@ -21,9 +21,12 @@ export default function useVisualMode(initial) {
 
   const back = () => {
 
-    // Deleting histroy state
+    // Deleting history state
 
-    if (history.length > 1) {
+    if (history.length > 1 && initial === "SHOW") {
+      setMode(history[0]);
+      setHistory(prevHistory => [...prevHistory.slice(0, -1)]);
+    } else if (history.length > 1 && initial === "EMPTY") {
       setMode(history[history.length - 2]);
       setHistory(prevHistory => [...prevHistory.slice(0, -1)]);
     }
